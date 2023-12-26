@@ -62,3 +62,10 @@
 *.exe
 *.out
 *.app
+
+#我的文件
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
