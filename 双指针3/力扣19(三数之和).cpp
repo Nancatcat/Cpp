@@ -145,7 +145,7 @@ public:
                 int right = n - 1;
                 while (left < right)
                 {
-                    //tmp = abs(tmp);
+                    tmp = abs(tmp); 
                     int sum = nums[left] + nums[right];
                     if (sum > tmp) right--;
                     else if (sum < tmp) left++;
