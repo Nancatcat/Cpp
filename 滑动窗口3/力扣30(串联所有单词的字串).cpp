@@ -5,6 +5,7 @@
 // 创建 hash2 ,将每次遍历出来的数组技术,与hash1对比 ,合法 count++
 // 如果right-left+1>words.size()证明不合法,将 left--;
 // 判断 ,如果count数量等于 wodrs,size() 证明相等, pushback nums;
+// 修订
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words)
