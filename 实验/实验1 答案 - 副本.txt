@@ -1,0 +1,59 @@
+create database gradem character set utf8;
+create table student(
+    sno char(10) not null primary key,
+    sname varchar(8) not null,
+    ssex char(2) not null,
+    sbirthday date,
+    saddress varchar(50),
+    sdept char(16),
+    speciality varchar(20)
+);
+create table course(
+    cno char(5) not null primary key,
+    cname varchar(20) not null
+);
+create table sc (
+    sno char(10) not null,
+    cno char(5) not null,
+    degree decimal(4,1) null,
+    primary key(sno,cno)
+);
+create table teacher(
+    tno char(3) not null primary key,
+    tname varchar(8) not null,
+    tsex char(2),
+    tbirthday date,
+    tdept char(16)
+);
+create table teaching(
+    cno char(5) not null,
+    tno char(3) not null,
+    cterm tinyint,
+    primary key(cno,tno)
+);
+insert into student
+values('20050101','李勇','男','1987-02-12','山东济南','计算机工程系','计算机应用'),
+      ('20050201','刘晨','女','1988-06-04','山东青岛','信息工程系','电子商务'),
+      ('20050301','王敏','女','1989-12-23','江苏苏州','数学系','数学'),
+      ('20050401','张立','男','1988-08-25','河北唐山','信息工程系','电子商务');
+insert into course
+values('C01','数据库'),
+      ('C02','数学'),
+      ('C03','信息系统'),
+      ('C04','操作系统');
+insert into sc 
+values ('20050101','C01','92'),
+       ('20050101','C02','85'),
+       ('20050101','C03','88'),
+       ('20050201','C02','90'),
+       ('20050201','C03','80');
+insert into teacher 
+values('101','李新','男','1977-01-12','计算机工程系'),
+      ('102','钱军','女','1968-06-04','计算机工程系'),
+      ('201','王小花','女','1979-12-23','信息工程系'),
+      ('202','张小青','男','1968-08-25','信息工程系');
+insert into teaching
+values('C01','101','2'),
+      ('C02','102','1'),
+      ('C03','201','3'),
+      ('C04','202','4');
