@@ -16,11 +16,11 @@ namespace bit
 		{}
 
 	};
-	template <class T>
+	template <class T, class Ref,class Ptr>
 	struct _list_iterator
 	{
 		typedef ListNode<T> Node;
-		typedef _list_iterator<T> self;
+		typedef _list_iterator<T , Ref, Ptr> self;
 		Node* _node;
 
 		_list_iterator(Node* node)
@@ -49,13 +49,21 @@ namespace bit
 			_node = _node->_prev;
 			return *this;
 		}
-		T& operator*()
+		Ref operator*()
 		{
 			return _node->_data;
+		}
+		Ptr operator->()
+		{
+			return &_node->_data;
 		}
 		bool operator!=(const self& s)
 		{
 			return _node != s._node;
+		}
+		bool operator==(const self& s)
+		{
+			return _node == s._node;
 		}
 	};
 	template <class T>
@@ -64,12 +72,21 @@ namespace bit
 		typedef ListNode<T> Node;
 		
 	public:
-		typedef _list_iterator<T> iterator;
+		typedef _list_iterator<T,T&,T*> iterator;
+		typedef _list_iterator<T,const T&,const T*> const_iterator;
 		iterator begin()
 		{
 			return _head->_next;
 		}
 		iterator end()
+		{
+			return _head;
+		}
+		const_iterator begin()const
+		{
+			return _head->_next;
+		}
+		const_iterator end()const
 		{
 			return _head;
 		}
@@ -79,7 +96,7 @@ namespace bit
 		}
 		list(list<T>& it)
 		{
-			emptyinit();
+	 		emptyinit();
 
 			for (auto& ch : it)
 			{
@@ -235,4 +252,22 @@ namespace bit
 		}
 		cout << endl;
 	}
+	void print_list(const list<int>& s1)
+	{
+		
+		list<int>::const_iterator it =  s1.begin();
+		while (it != s1.end())
+		{
+			cout << *it << " ";
+			++it;
+		}
+		cout << endl;
+		for (auto e : s1)
+		{
+			cout << e << " ";
+		}
+		cout << endl;
+	}
+	
+	
 }
