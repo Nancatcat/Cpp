@@ -65,4 +65,12 @@ int main()
     }
     return 0;
 }
+
+int main()
+{
+    int a = 0;
+    int b = 0;
+    int c = a + b;
+    return 0;
+}
 // 64 Î»Êä³öÇëÓÃ printf("%lld")
