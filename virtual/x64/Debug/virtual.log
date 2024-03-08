@@ -1,0 +1,4 @@
+﻿  word.cpp
+D:\Bit\gitcode\Cpp\virtual\word.cpp(118,1): warning C4326: “main”的返回类型应为“int”而非“void”
+D:\Bit\gitcode\Cpp\virtual\word.cpp(122,10): warning C4305: “参数”: 从“double”到“float”截断
+  virtual.vcxproj -> D:\Bit\gitcode\Cpp\virtual\x64\Debug\virtual.exe
